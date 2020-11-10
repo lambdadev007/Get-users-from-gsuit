@@ -2,13 +2,13 @@
 
 ## Prerequisites
 
-### Enable Directory API for your project
+### Enable ADMIN SDK for your project
 
 Any application that calls Google APIs needs to enable those APIs in the API Console. To enable the appropriate APIs for your project:
 
 1.  Open the [Library](https://console.developers.google.com/apis/library) page in the API Console.
 2.  Select the project associated with your application. Create a project if you do not have one already.
-3.  Use the **Library** page to find each API that your application will use. Click on each API and enable it for your project.
+3.  Use the **Library** page to find ADMIN SDK that your application will use. Click and enable it for your project.
 
 ### Create authorization credentials
 
