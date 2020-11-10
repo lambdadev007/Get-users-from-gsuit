@@ -20,7 +20,7 @@ Any application that uses OAuth 2.0 to access Google APIs must have authorizatio
 
     For testing, you can specify URIs that refer to the local machine, such as `http://localhost:8080`.
 
-After creating your credentials, download the **client_secret.json** file from the API Console. Securely store the file in a location
+After creating your credentials, copy `Client ID` and `Client secret`.
 
 
 ## Setup
@@ -29,12 +29,14 @@ After creating your credentials, download the **client_secret.json** file from t
   ``git clone https://github.com/lambdadev007/Get-users-from-gsuit.git``
 - Run `composer install`
 
+- Host the app's index page on the URL you specified while creating the Oauth2.0 credentials.
+
 ## How it works
 - Move to the project directory and Run
   
-  ``php getUser.php --cid=<client_id> --pid=<project_id> --csec=<client_secret> --ruri=<redirect_uri>``
+  ``php getUser.php --cid=<Client ID> --csec=<Client secret> --ruri=<Redirect URI>``
 
-  > FYI: As far as you use same app credentials, you won't need to specficy the parameters for future.
+  > **FYI**: As far as you use same app credentials, you won't need to specficy the parameters for future.
 
 - You will be prompted to authroize access to your G-suit account.
 - Upon allowing access, you will be redirected to the app URL which you added while you create the Oauth credentials.

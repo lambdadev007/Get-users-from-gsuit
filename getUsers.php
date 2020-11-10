@@ -12,7 +12,7 @@ if (php_sapi_name() != 'cli') {
  * @return Google_Client the authorized client object
  */
 function setConfig() {
-    $credentialsPath = './test123.json';
+    $credentialsPath = './credentials.json';
     $credentialsAvailable = false;
     
     $shortopts  = "";
@@ -25,16 +25,16 @@ function setConfig() {
     
     $options = getopt($shortopts, $longopts);
     
-    if(!file_exists($credentialsPath) && count($options) < 4 ) {
+    if(!file_exists($credentialsPath) && count($options) < 3 ) {
         print("You must specify the app credentials!");
         die;
     }
     
-    if(!!$options['cid'] && !!$options['pid'] && !!$options['csec'] && !!$options['ruri']) {
+    if(!!$options['cid'] && !!$options['csec'] && !!$options['ruri']) {
         $credentials = [
             "web" => [
                 "client_id" => $options['cid'],
-                "project_id" => $options['pid'],
+                "project_id" => "",
                 "auth_uri" => "https://accounts.google.com/o/oauth2/auth",
                 "token_uri" => "https://oauth2.googleapis.com/token",
                 "auth_provider_x509_cert_url" => "https://www.googleapis.com/oauth2/v1/certs",
@@ -75,7 +75,7 @@ function getClient($credentialsPath)
     // The file token.json stores the user's access and refresh tokens, and is
     // created automatically when the authorization flow completes for the first
     // time.
-    $tokenPath = './credentials.json';
+    $tokenPath = './token.json';
     if (file_exists($tokenPath)) {
         $accessToken = json_decode(file_get_contents($tokenPath), true);
         $client->setAccessToken($accessToken);
