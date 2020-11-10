@@ -1,4 +1,4 @@
-# Get-Users-from-G-suit
+# Get Users from G-suit
 
 ## 1. Setup
 - Clone this repository by running below command
