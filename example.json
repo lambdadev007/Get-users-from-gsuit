@@ -1,13 +1,13 @@
 {
     "web": {
-        "client_id": "62830713699-85rtgl9nqh4cgiab7pe8hpucmmf72qep.apps.googleusercontent.com",
-        "project_id": "quickstart-1604703416757",
+        "client_id": "xxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com",
+        "project_id": "xxxxxxxxxx-xxxxxxxxxxxxx",
         "auth_uri": "https://accounts.google.com/o/oauth2/auth",
         "token_uri": "https://oauth2.googleapis.com/token",
         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-        "client_secret": "Gahc4DRrBjBF63OP9krcVoDe",
+        "client_secret": "xxxxxxxxxxxxxxxxxxxxxxxx",
         "redirect_uris": [
-            "https://dev.devlandunion.com/auth"
+            "https://xxx.yyy/path"
         ]
     }
 }

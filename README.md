@@ -11,7 +11,9 @@
 ## 2. How it works
 - Move to the project directory and Run
   
-  `php getUser.php`
+  `php getUser.php --cid=<client_id> --pid=<project_id> --csec=<client_secret> --ruri=<redirect_uri>`
+
+  FYI: As far as you use same app credentials, you won't need to specficy the parameters for future.
 
 - You will be prompted to authroize access to your G-suit account.
 - Upon allowing access, you will be redirected to the app URL which you added while you create the Oauth credentials.

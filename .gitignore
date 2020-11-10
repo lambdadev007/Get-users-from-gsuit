@@ -1,3 +1,6 @@
 results
 .ionide
 vendor
+token.json
+credentials.json
+test**

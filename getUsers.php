@@ -11,12 +11,63 @@ if (php_sapi_name() != 'cli') {
  * Returns an authorized API client.
  * @return Google_Client the authorized client object
  */
-function getClient()
+function setConfig() {
+    $credentialsPath = './test123.json';
+    $credentialsAvailable = false;
+    
+    $shortopts  = "";
+    $longopts  = array(
+        "cid:",
+        "pid:",
+        "csec:",
+        "ruri:"
+    );
+    
+    $options = getopt($shortopts, $longopts);
+    
+    if(!file_exists($credentialsPath) && count($options) < 4 ) {
+        print("You must specify the app credentials!");
+        die;
+    }
+    
+    if(!!$options['cid'] && !!$options['pid'] && !!$options['csec'] && !!$options['ruri']) {
+        $credentials = [
+            "web" => [
+                "client_id" => $options['cid'],
+                "project_id" => $options['pid'],
+                "auth_uri" => "https://accounts.google.com/o/oauth2/auth",
+                "token_uri" => "https://oauth2.googleapis.com/token",
+                "auth_provider_x509_cert_url" => "https://www.googleapis.com/oauth2/v1/certs",
+                "client_secret" => $options['csec'],
+                "redirect_uris" => [
+                    $options['ruri']
+                ]
+            ]
+        ];
+    
+        file_put_contents($credentialsPath, json_encode($credentials));
+        $credentialsAvailable = true;
+    }
+    else {
+        if(file_exists($credentialsPath)) {
+            $credentialsAvailable = true;
+        }
+    }
+    
+    if(!$credentialsAvailable) {
+        print("You must specify the app credentials!");
+        die;
+    }
+
+    return $credentialsPath;
+}
+
+function getClient($credentialsPath)
 {
     $client = new Google_Client();
     $client->setApplicationName('G Suite Directory API PHP Quickstart');
     $client->setScopes(Google_Service_Directory::ADMIN_DIRECTORY_USER_READONLY);
-    $client->setAuthConfig('./credentials.json');
+    $client->setAuthConfig($credentialsPath);
     $client->setAccessType('offline');
     $client->setPrompt('select_account consent');
 
@@ -24,7 +75,7 @@ function getClient()
     // The file token.json stores the user's access and refresh tokens, and is
     // created automatically when the authorization flow completes for the first
     // time.
-    $tokenPath = './token.json';
+    $tokenPath = './credentials.json';
     if (file_exists($tokenPath)) {
         $accessToken = json_decode(file_get_contents($tokenPath), true);
         $client->setAccessToken($accessToken);
@@ -62,7 +113,8 @@ function getClient()
 
 
 // Get the API client and construct the service object.
-$client = getClient();
+$cPath = setConfig();
+$client = getClient($cPath);
 $service = new Google_Service_Directory($client);
 
 // Print the first 10 users in the domain.
@@ -74,6 +126,10 @@ $optParams = array(
 $results = $service->users->listUsers($optParams);
 
 $directory = "./results";
+if (!file_exists($directory)) {
+    mkdir($directory, 0777, true);
+}
+
 $fileName = "users-".time().".csv";
 $file = fopen($directory. "/" . $fileName, "w");
 $header = ['FIRSTNAME', 'LASTNAME', 'EMAIL', 'OrganizationalUnit'];
