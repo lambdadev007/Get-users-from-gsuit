@@ -36,7 +36,7 @@ After creating your credentials, copy `Client ID` and `Client secret`.
   
   ``php getUser.php --cid=<Client ID> --csec=<Client secret> --ruri=<Redirect URI>``
 
-  > **FYI**: As far as you use same app credentials, you won't need to specficy the parameters for future.
+  > **FYI**: As far as you use same app credentials, you won't need to specify the parameters for future.
 
 - You will be prompted to authroize access to your G-suit account.
 - Upon allowing access, you will be redirected to the app URL which you added while you create the Oauth credentials.
