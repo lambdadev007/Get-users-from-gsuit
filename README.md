@@ -3,7 +3,7 @@
 ## 1. Setup
 - Clone this repository by running below command
   
-  `git clone https://github.com/lambdadev007/Get-Users-from-G-suit.git`
+  ``git clone https://github.com/lambdadev007/Get-Users-from-G-suit.git``
 - Run `composer install`
 - Create a Oauth credentials and enable Directory API on your Google account.
 - Download credentials and save it in the project directory as named  `credentials.json`
@@ -11,7 +11,7 @@
 ## 2. How it works
 - Move to the project directory and Run
   
-  `php getUser.php --cid=<client_id> --pid=<project_id> --csec=<client_secret> --ruri=<redirect_uri>`
+  ``php getUser.php --cid=<client_id> --pid=<project_id> --csec=<client_secret> --ruri=<redirect_uri>``
 
   FYI: As far as you use same app credentials, you won't need to specficy the parameters for future.
 
