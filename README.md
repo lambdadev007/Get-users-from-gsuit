@@ -6,7 +6,7 @@
   `git clone https://github.com/lambdadev007/Get-Users-from-G-suit.git`
 - Run `composer install`
 - Create a Oauth credentials and enable Directory API on your Google account.
-- Down load credentials and save it in the project directory as named  `credentials.json`
+- Download credentials and save it in the project directory as named  `credentials.json`
 
 ## 2. How it works
 - Move to the project directory and Run
