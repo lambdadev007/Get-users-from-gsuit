@@ -25,16 +25,18 @@ After creating your credentials, copy `Client ID` and `Client secret`.
 
 ## Setup
 - Clone this repository by running below command
-  
-  ``git clone https://github.com/lambdadev007/Get-users-from-gsuit.git``
+  ```
+  git clone https://github.com/lambdadev007/Get-users-from-gsuit.git
+  ```
 - Run `composer install`
 
 - Host the app's index page on the URL you specified while creating the Oauth2.0 credentials.
 
 ## How it works
 - Move to the project directory and Run
-  
-  ``php getUser.php --cid=<Client ID> --csec=<Client secret> --ruri=<Redirect URI>``
+  ```
+  php getUser.php --cid=<Client ID> --csec=<Client secret> --ruri=<Redirect URI>
+  ```
 
   > **FYI**: As far as you use same app credentials, you won't need to specify the parameters for future.
 
